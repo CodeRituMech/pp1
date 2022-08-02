@@ -6,14 +6,17 @@ import streamlit as st
 
 st.set_page_config(page_title="App1", page_icon="🧟 🧟‍♂️")
 st.title("Purplle Rating App")
-url = 'https://www.purplle.com/pd/'
+
 txt_input = st.text_input("Enter list of all Purplle SKU's: ")
 if txt_input:
     txt_input = txt_input.split(" ")
     session=requests.session()
     header = {
         'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36'}
-    soupR=session.get(url+str(txt_input[0]),headers=header).content
+    url = 'https://www.purplle.com/pd/'+str(txt_input[0])
+    print(url)
+    soupR=session.get(url,headers=header).content
+    print(soupR)
     productId = re.findall(';product_id=(\d+)', str(soupR))[0]
     r = session.get(
 
