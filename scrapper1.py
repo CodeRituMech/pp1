@@ -15,8 +15,10 @@ if txt_input:
         'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36'}
     url = 'https://www.purplle.com/pd/'+str(txt_input[0])
     print(url)
-    soupR=requests.get(url,headers=header,allow_redirects=True).text
-    print(soupR)
+    soupR=session.get(url,headers=header).text
+    loc=soupR.headers['location']
+    print(loc)
+    print(soupR.headers)
     productId = re.findall(';product_id=(\d+)', str(soupR))[0]
     r = session.get(
 
