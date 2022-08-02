@@ -17,8 +17,8 @@ if txt_input:
     print(url)
     soupR=session.get(url,headers=header)
     print(soupR.headers)
-    loc=soupR.headers['location']
-    print(loc)
+#     loc=soupR.headers['location']
+#     print(loc)
     
     productId = re.findall(';product_id=(\d+)', str(soupR))[0]
     r = session.get(
