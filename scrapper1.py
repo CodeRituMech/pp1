@@ -20,13 +20,13 @@ if txt_input:
 #     loc=soupR.headers['location']
 #     print(loc)
     
-    productId = re.findall(';product_id=(\d+)', str(soupR))[0]
-    r = session.get(
+#     productId = re.findall(';product_id=(\d+)', str(soupR))[0]
+#     r = session.get(
 
-        f'https://www.purplle.com/neo/catalog/reviews?productId={productId}&page=1&sortBy=mh',headers=header).json()
-    rating_count = r['reviewStats']['countRating']
-    rating_avg = r['reviewStats']['avgRating']
-    count_reviews = r['reviewStats']['countReviews']
-    st.write('Rating Count:', rating_count)
-    st.write('avg Rating:', rating_avg)
-    st.write('Count reviews:', count_reviews)
+#         f'https://www.purplle.com/neo/catalog/reviews?productId={productId}&page=1&sortBy=mh',headers=header).json()
+#     rating_count = r['reviewStats']['countRating']
+#     rating_avg = r['reviewStats']['avgRating']
+#     count_reviews = r['reviewStats']['countReviews']
+#     st.write('Rating Count:', rating_count)
+#     st.write('avg Rating:', rating_avg)
+#     st.write('Count reviews:', count_reviews)
