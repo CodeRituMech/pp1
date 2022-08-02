@@ -16,9 +16,10 @@ if txt_input:
     url = 'https://www.purplle.com/pd/'+str(txt_input[0])
     print(url)
     soupR=session.get(url,headers=header)
+    print(soupR.headers)
     loc=soupR.headers['location']
     print(loc)
-    print(soupR.headers)
+    
     productId = re.findall(';product_id=(\d+)', str(soupR))[0]
     r = session.get(
 
